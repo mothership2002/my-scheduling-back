@@ -36,9 +36,9 @@ public class CalendarController {
         return calendarService.login(param);
     }
 
-    @PostMapping("/selectMonthSchedule/{selectMonth}/")
-    public List<CalendarResult> selectScheduleDate(@RequestBody Map<String,String> param,
-                                                   @PathVariable String selectMonth){
-        return calendarService.scheduleDateSelect(param, selectMonth);
+    @PostMapping("/selectMonthSchedule")
+    public List<CalendarResult> selectScheduleDate(@RequestBody Map<String,String> param){
+
+        return calendarService.scheduleDateSelect(param);
     }
 }
