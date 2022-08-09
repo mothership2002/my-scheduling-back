@@ -21,4 +21,6 @@ public interface CalendarMapper {
     int insertMember(Map<String,String> param);
 
     List<CalendarResult> scheduleDataSelect(Member member);
+
+    void insertSchedule(Map<String, String> param);
 }

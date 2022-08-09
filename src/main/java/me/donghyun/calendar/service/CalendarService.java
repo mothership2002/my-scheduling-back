@@ -50,4 +50,8 @@ public class CalendarService {
         return calendarMapper.scheduleDataSelect(member);
     }
 
+    public void insertSchedule(Map<String, String> param) {
+        param.put("scheduleDate", param.get("addDate") + param.get("addHour") + param.get("addMinute") + "00");
+        calendarMapper.insertSchedule(param);
+    }
 }

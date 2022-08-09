@@ -41,4 +41,11 @@ public class CalendarController {
 
         return calendarService.scheduleDateSelect(param);
     }
+
+    @PostMapping("/insert-schedule")
+    public List<CalendarResult> insertSchedule(@RequestBody Map<String,String> param) {
+        calendarService.insertSchedule(param);
+        param.put("selectMonth",param.get("addDate").substring(0,6)+"%");
+        return selectScheduleDate(param);
+    }
 }

@@ -54,4 +54,8 @@
         ORDER BY SCHEDULE_DATE
     </select>
 
+    <insert id="insertSchedule">
+        INSERT INTO SCHEDULE
+        VALUES (SEQ_SCHEDULE_NO.NEXTVAL,#{memberNo},DEFAULT,#{contents},DEFAULT,DEFAULT,#{scheduleDate})
+    </insert>
 </mapper>
