@@ -34,7 +34,7 @@ public class CalendarService {
         Member member = calendarMapper.login(param);
 
         if(member == null) {
-            insertMember(param);
+            calendarMapper.insertMember(param);
             member = calendarMapper.login(param);
         }
 
@@ -43,17 +43,11 @@ public class CalendarService {
 
     public List<CalendarResult> scheduleDateSelect(Map<String,String> param){
 
-        long memberNo = Long.parseLong(param.get("memberNo"));
-
         Member member = new Member();
-        member.setMemberNo(memberNo);
-        member.setSelectMonth(param.get("selectMonth"));
+        member.setMemberNo(Long.parseLong(param.get("memberNo")));
+        member.setSelectMonth(param.get("selectMonth")+"%");
 
         return calendarMapper.scheduleDataSelect(member);
-    }
-
-    public int insertMember(Map<String,String> param){
-        return calendarMapper.insertMember(param);
     }
 
 }
