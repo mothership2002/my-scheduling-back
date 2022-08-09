@@ -41,13 +41,13 @@ public class CalendarService {
         return member;
     }
 
-    public List<CalendarResult> scheduleDateSelect(Map<String,String> param, String selectMonth){
+    public List<CalendarResult> scheduleDateSelect(Map<String,String> param){
 
         long memberNo = Long.parseLong(param.get("memberNo"));
 
         Member member = new Member();
         member.setMemberNo(memberNo);
-        member.setSelectMonth(selectMonth);
+        member.setSelectMonth(param.get("selectMonth"));
 
         return calendarMapper.scheduleDataSelect(member);
     }
