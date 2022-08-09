@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@115.90.212.22:9000:xe
+    username: KH_FINAL_BANGBANG
+    password: BANGBANG
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+
+mybatis:
+  mapper-locations: mybatis/*/**.xml
+  type-aliases-package: me.donghyun.calendar.mapper

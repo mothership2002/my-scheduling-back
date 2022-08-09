@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.donghyun.calendar.mapper.CalendarMapper">
+    
+<!--    <resultMap      id="member_rm"          type="me.donghyun.calendar.dto.Member">-->
+<!--        <id         property="memberNo"     column="MEMBER_NO"/>-->
+<!--        <result     property="ID"           column="ID"/>-->
+<!--        <result     property="PW"           column="PW"/>-->
+<!--    </resultMap>-->
+
+<!--    <resultMap      id="calendar_rm"         type="me.donghyun.calendar.dto.CalendarResult">-->
+<!--        <id         property="scheduleNo"   column="SCHEDULE_NO"/>-->
+<!--        <result     property="memberNo"     column="MEMBER_NO"/>-->
+<!--        <result     property="insertDate"    column="INSERT_DATE"/>-->
+<!--        <result     property="eventTime"    column="EVENT_TIME"/>-->
+<!--        <result     property="contents"     column="EVENT_CONTENT"/>-->
+<!--        <result     property="eventMonth"     column="EVENT_MONTH"/>-->
+<!--        <result     property="eventDay"     column="EVENT_DAY"/>-->
+<!--        <result     property="deleteDate"     column="DELETE_DATE"/>-->
+<!--        <result     property="updateDate"     column="UPDATE_DATE"/>-->
+<!--    </resultMap>-->
+    
+    <select id="findAll" resultType="me.donghyun.calendar.dto.CalendarResult">
+        SELECT MEMBER_NO AS memberNo, EVENT_CONTENT AS contents
+        FROM SCHEDULE
+    </select>
+
+    <select id="findById" resultType="me.donghyun.calendar.dto.CalendarResult">
+        SELECT MEMBER_NO AS memberNo, EVENT_CONTENT AS contents
+        FROM SCHEDULE
+        WHERE MEMBER_NO = #{id}
+    </select>
+
+    <select id="login" resultType="me.donghyun.calendar.dto.Member" parameterType="map">
+        SELECT MEMBER_NO AS memberNo, ID, PW
+        FROM MEMBER
+        WHERE ID = #{inputID}
+        AND PW = #{inputPW}
+    </select>
+
+    <insert id="insertMember">
+        INSERT INTO MEMBER
+        VALUES (SEQ_MEMBER_NO.NEXTVAL,#{inputID},#{inputPW})
+    </insert>
+
+    <select id="scheduleDataSelect" resultType="me.donghyun.calendar.dto.CalendarResult">
+        SELECT SCHEDULE_NO AS scheduleNo, MEMBER_NO AS memberNo,
+               EVENT_CONTENT AS contents,  SCHEDULE_DATE AS scheduleDate
+        FROM SCHEDULE
+        WHERE SCHEDULE_DATE LIKE #{selectMonth}
+          AND MEMBER_NO = #{memberNo}
+          AND DELETE_DATE IS NULL
+        ORDER BY SCHEDULE_DATE
+    </select>
+
+</mapper>
