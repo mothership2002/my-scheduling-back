@@ -32,7 +32,7 @@ public class CalendarController {
     }
 
     @PostMapping("/login")
-    public Member login(@RequestBody Map<String,String> param){
+    public long login(@RequestBody Map<String,String> param){
         return calendarService.login(param);
     }
 

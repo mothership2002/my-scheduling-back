@@ -29,7 +29,7 @@ public class CalendarService {
 
 
 
-    public Member login(Map<String,String> param){
+    public long login(Map<String,String> param){
 
         Member member = calendarMapper.login(param);
 
@@ -38,7 +38,7 @@ public class CalendarService {
             member = calendarMapper.login(param);
         }
 
-        return member;
+        return member.getMemberNo();
     }
 
     public List<CalendarResult> scheduleDateSelect(Map<String,String> param){
