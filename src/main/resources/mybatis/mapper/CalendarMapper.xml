@@ -58,4 +58,9 @@
         INSERT INTO SCHEDULE
         VALUES (SEQ_SCHEDULE_NO.NEXTVAL,#{memberNo},DEFAULT,#{contents},DEFAULT,DEFAULT,#{scheduleDate})
     </insert>
+
+    <update id="deleteSchedule">
+        UPDATE SCHEDULE SET DELETE_DATE = SYSDATE
+        WHERE SCHEDULE_NO = #{scheduleNo}
+    </update>
 </mapper>

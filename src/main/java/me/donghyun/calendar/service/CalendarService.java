@@ -54,4 +54,8 @@ public class CalendarService {
         param.put("scheduleDate", param.get("addDate") + param.get("addHour") + param.get("addMinute") + "00");
         calendarMapper.insertSchedule(param);
     }
+
+    public void deleteSchedule(Map<String, String> param) {
+        calendarMapper.deleteSchedule(param);
+    }
 }

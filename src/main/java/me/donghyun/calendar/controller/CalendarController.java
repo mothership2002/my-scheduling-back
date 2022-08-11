@@ -48,4 +48,10 @@ public class CalendarController {
         param.put("selectMonth",param.get("addDate").substring(0,6)+"%");
         return selectScheduleDate(param);
     }
+
+    @PostMapping("/delete-schedule")
+    public List<CalendarResult> deleteSchedule(@RequestBody Map<String,String> param){
+        calendarService.deleteSchedule(param);
+        return calendarService.scheduleDateSelect(param);
+    }
 }
