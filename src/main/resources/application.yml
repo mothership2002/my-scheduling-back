@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:oracle:thin:@115.90.212.22:9000:xe
-    username: KH_FINAL_BANGBANG
-    password: BANGBANG
-    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: user_test
+    password: user
+    driver-class-name: org.postgresql.Driver
 
 mybatis:
   mapper-locations: mybatis/*/**.xml

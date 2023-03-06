@@ -22,18 +22,18 @@
 <!--    </resultMap>-->
     
     <select id="findAll" resultType="me.donghyun.calendar.dto.CalendarResult">
-        SELECT MEMBER_NO AS memberNo, EVENT_CONTENT AS contents
+        SELECT USER_NO AS memberNo, EVENT_CONTENT AS contents
         FROM SCHEDULE
     </select>
 
     <select id="findById" resultType="me.donghyun.calendar.dto.CalendarResult">
-        SELECT MEMBER_NO AS memberNo, EVENT_CONTENT AS contents
+        SELECT USER_NO AS memberNo, EVENT_CONTENT AS contents
         FROM SCHEDULE
-        WHERE MEMBER_NO = #{id}
+        WHERE USER_NO = #{id}
     </select>
 
     <select id="login" resultType="me.donghyun.calendar.dto.Member" parameterType="map">
-        SELECT MEMBER_NO AS memberNo, ID, PW
+        SELECT USER_NO AS memberNo, ID, PW
         FROM MEMBER
         WHERE ID = #{inputID}
         AND PW = #{inputPW}
@@ -45,11 +45,11 @@
     </insert>
 
     <select id="scheduleDataSelect" resultType="me.donghyun.calendar.dto.CalendarResult">
-        SELECT SCHEDULE_NO AS scheduleNo, MEMBER_NO AS memberNo,
-               EVENT_CONTENT AS contents,  SCHEDULE_DATE AS scheduleDate
+        SELECT SCHEDULE_NO AS scheduleNo, USER_NO AS memberNo,
+               SCHEDULE_CONTENT AS contents,  SCHEDULE_DATE AS scheduleDate
         FROM SCHEDULE
         WHERE SCHEDULE_DATE LIKE #{selectMonth}
-          AND MEMBER_NO = #{memberNo}
+          AND USER_NO = #{memberNo}
           AND DELETE_DATE IS NULL
         ORDER BY SCHEDULE_DATE
     </select>
