@@ -28,12 +28,11 @@ public class CalendarService {
     }
 
 
-
-    public long login(Map<String,String> param){
+    public long login(Map<String, String> param) {
 
         Member member = calendarMapper.login(param);
 
-        if(member == null) {
+        if (member == null) {
             calendarMapper.insertMember(param);
             member = calendarMapper.login(param);
         }
@@ -41,11 +40,11 @@ public class CalendarService {
         return member.getMemberNo();
     }
 
-    public List<CalendarResult> scheduleDateSelect(Map<String,String> param){
+    public List<CalendarResult> scheduleDateSelect(Map<String, String> param) {
 
         Member member = new Member();
         member.setMemberNo(Long.parseLong(param.get("memberNo")));
-        member.setSelectMonth(param.get("selectMonth")+"%");
+        member.setSelectMonth(param.get("selectMonth") + "%");
 
         return calendarMapper.scheduleDataSelect(member);
     }

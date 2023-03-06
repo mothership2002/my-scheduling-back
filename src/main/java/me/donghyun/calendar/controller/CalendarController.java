@@ -14,7 +14,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/calendars")
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://aiueo.iptime.org:3000")
 public class CalendarController {
 
     @Autowired

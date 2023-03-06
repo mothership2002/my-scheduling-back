@@ -16,9 +16,9 @@ public interface CalendarMapper {
 
     CalendarResult findById(Long id);
 
-    Member login(Map<String,String> param);
+    Member login(Map<String, String> param);
 
-    int insertMember(Map<String,String> param);
+    int insertMember(Map<String, String> param);
 
     List<CalendarResult> scheduleDataSelect(Member member);
 

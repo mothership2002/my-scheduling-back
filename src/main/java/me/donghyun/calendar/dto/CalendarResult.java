@@ -3,11 +3,10 @@ package me.donghyun.calendar.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 public class CalendarResult {
 
-//    private Long Sc;
-//    private String content;
     private Long scheduleNo;
     private Long memberNo;
 
